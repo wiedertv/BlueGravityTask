@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerState : MonoBehaviour
+public class PlayerState
 {
     protected float xInput;
     protected float yInput;
@@ -20,7 +20,7 @@ public class PlayerState : MonoBehaviour
 
     public virtual void Enter()
     {
-        player.animator.SetBool(animBoolName, true);
+        player.Animator.SetBool(animBoolName, true);
     }
 
     public virtual void Update()
@@ -32,6 +32,6 @@ public class PlayerState : MonoBehaviour
 
     public virtual void Exit()
     {
-        player.animator.SetBool(animBoolName, false);
+        player.Animator.SetBool(animBoolName, false);
     }
 }
