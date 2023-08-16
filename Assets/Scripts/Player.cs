@@ -13,17 +13,15 @@ public class Player : MonoBehaviour
     #region Player Components, and variables
     public Animator Animator { get; private set; }
     public Rigidbody2D Rb { get; private set; }
-    public float XFacingDir { get; private set; } = 0;
-    public float YFacingDir { get; private set; } = 0;
 
-    public const string XDirection = "xDirection";
-    public const string YDirection = "yDirection";
     #endregion
 
     [Header("Player properties")]
     [SerializeField] private float walkSpeed;
     public string areaTransitionName;
 
+    public float FacingDir { get; private set; } = 1;
+    private bool FacingRight = true;
 
     #region States
     public PlayerStateMachine stateMachine { get; private set; }
@@ -75,28 +73,31 @@ public class Player : MonoBehaviour
      */
     public void SetVelocity(float _xVelocity, float _yVelocity)
     {
-        FlipController(_xVelocity, _yVelocity);
+        FlipController(_xVelocity);
         Rb.velocity = new Vector2(_xVelocity, _yVelocity) * walkSpeed;
     }
 
 
     /*
      * float x = Horizontal input
-     * float y = Vertical Input
      * 
-     * Description: function that set the x and y direction of the player.
+     * Description: function that set the facing direction.
      * 
      * 
     */
-    private void FlipController(float x, float y)
+    private void FlipController(float x)
     {
-        if (x != 0 | y != 0)
-        {
-            XFacingDir = x;
-            YFacingDir = y;
-            Animator.SetFloat(XDirection, XFacingDir);
-            Animator.SetFloat(YDirection, YFacingDir);
-        }
+        if (x > 0 && !FacingRight)
+            Flip();
+        else if (x < 0 && FacingRight)
+            Flip();
+    }
+
+    private void Flip()
+    {
+        FacingDir *= -1;
+        FacingRight = !FacingRight;
+        transform.Rotate(0, 180, 0);
     }
 
 }
