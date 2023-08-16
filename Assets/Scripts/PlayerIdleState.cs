@@ -29,6 +29,7 @@ public class PlayerIdleState : PlayerState
     {
         if(xInput != 0 || yInput != 0)
         {
+            if(player.CanMove)
             stateMachine.ChangeState(player.playerMovementState);
         }
     }

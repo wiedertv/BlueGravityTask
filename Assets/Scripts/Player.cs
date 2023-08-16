@@ -17,8 +17,9 @@ public class Player : MonoBehaviour
     #endregion
 
     [Header("Player properties")]
-    [SerializeField] private float walkSpeed;
-    public string areaTransitionName;
+    [SerializeField] private float WalkSpeed;
+    public bool CanMove = true;
+    public string AreaTransitionName;
 
     public float FacingDir { get; private set; } = 1;
     private bool FacingRight = true;
@@ -74,7 +75,7 @@ public class Player : MonoBehaviour
     public void SetVelocity(float _xVelocity, float _yVelocity)
     {
         FlipController(_xVelocity);
-        Rb.velocity = new Vector2(_xVelocity, _yVelocity) * walkSpeed;
+        Rb.velocity = new Vector2(_xVelocity, _yVelocity) * WalkSpeed;
     }
 
 

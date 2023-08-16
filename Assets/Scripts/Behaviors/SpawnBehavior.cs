@@ -11,8 +11,13 @@ public class SpawnBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(transitionName == Player.Instance.areaTransitionName)
+        if(transitionName == Player.Instance.AreaTransitionName)
+        {
             Player.Instance.transform.position = this.transform.position;
+            FadeBehavior.Instance.FadeFromBlack();
+
+            GameManager.Instance.FadingBetweenAreas = false;
+        }
     }
 
     // Update is called once per frame

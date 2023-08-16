@@ -538,8 +538,20 @@ PrefabInstance:
       value: Entrance_Exit
       objectReference: {fileID: 0}
     - target: {fileID: 7828047839975474351, guid: 649de46d3d4ab74478ddde795c8c1aa4, type: 3}
+      propertyPath: AreaToGo
+      value: MainScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828047839975474351, guid: 649de46d3d4ab74478ddde795c8c1aa4, type: 3}
       propertyPath: areaToGo
       value: MainScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828047839975474351, guid: 649de46d3d4ab74478ddde795c8c1aa4, type: 3}
+      propertyPath: TimeToLoad
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828047839975474351, guid: 649de46d3d4ab74478ddde795c8c1aa4, type: 3}
+      propertyPath: AreaTransitionName
+      value: OutStore
       objectReference: {fileID: 0}
     - target: {fileID: 7828047839975474351, guid: 649de46d3d4ab74478ddde795c8c1aa4, type: 3}
       propertyPath: areaTransitionName

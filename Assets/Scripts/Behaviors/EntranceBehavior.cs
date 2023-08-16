@@ -6,9 +6,13 @@ using UnityEngine.SceneManagement;
 public class EntranceBehavior : MonoBehaviour
 {
     [SerializeField]
-    private string areaToGo;
+    private string AreaToGo;
     [SerializeField]
-    private string areaTransitionName;
+    private string AreaTransitionName;
+    [SerializeField]
+    private float TimeToLoad;
+
+    private bool shouldLoad;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +23,18 @@ public class EntranceBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (shouldLoad)
+        {
+            TimeToLoad -= Time.deltaTime;
+
+            if(TimeToLoad <= 0)
+            {
+                shouldLoad = false;
+                SceneManager.LoadScene(AreaToGo);
+
+            }
+        }
         
     }
 
@@ -26,8 +42,10 @@ public class EntranceBehavior : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            SceneManager.LoadScene(areaToGo);
-            Player.Instance.areaTransitionName = areaTransitionName;
+            shouldLoad = true;
+            FadeBehavior.Instance.FadeToBlack();
+            GameManager.Instance.FadingBetweenAreas = true;
+            Player.Instance.AreaTransitionName = AreaTransitionName;
         }
     }
 }
