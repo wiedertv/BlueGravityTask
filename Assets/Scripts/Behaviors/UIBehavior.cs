@@ -49,5 +49,11 @@ public class UIBehavior : MonoBehaviour
             }
         }
     }
+
+    public void CloseMenuButton()
+    {
+        MainMenu.SetActive(false);
+        GameManager.Instance.GameMenuOpen = false;
+    }
     
 }

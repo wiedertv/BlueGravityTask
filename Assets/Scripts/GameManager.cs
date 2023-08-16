@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
 
     public bool GameMenuOpen, DialogActive, FadingBetweenAreas;
 
+    public Item[] referenceItems;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,5 +33,18 @@ public class GameManager : MonoBehaviour
         {
             Player.Instance.CanMove = true;
         }
+    }
+
+    public Item GetEquippedItem(SpriteRenderer part)
+    {
+        for (int i = 0; i < referenceItems.Length; i++)
+        {
+            if (referenceItems[i].PlayerPart == part)
+                return referenceItems[i];
+        }
+
+
+
+        return null;
     }
 }
