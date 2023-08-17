@@ -92,6 +92,11 @@ public class ShopBehavior : MonoBehaviour
     {
         BuyPanel.SetActive(false);
         SellPanel.SetActive(true);
+        ShowItemsToSell();
+    }
+
+    private void ShowItemsToSell()
+    {
         GameManager.Instance.SortItems();
 
         for (int i = 0; i < SellButtons.Length; i++)
@@ -124,7 +129,11 @@ public class ShopBehavior : MonoBehaviour
         ActiveItem = newItem;
         SaleItemName.text = ActiveItem.ItemName;
         SaleItemDescription.text = ActiveItem.ItemDesc;
-        SaleItemValue.text = "Value: " + ((int)(ActiveItem.value * .8f)).ToString("N0");
+        if (isSellable())
+            SaleItemValue.text = "Value: " + ((int)(ActiveItem.value * .8f)).ToString("N0");
+        else
+
+            SaleItemValue.text = "This Item is Equipped";
     }
 
     public void BuyItem()
@@ -143,10 +152,25 @@ public class ShopBehavior : MonoBehaviour
     {
         if(ActiveItem != null)
         {
-            GameManager.Instance.RemoveItemFromInventory(ActiveItem.ItemName);
-            GameManager.Instance.CurrentCoinAmount += (int)(ActiveItem.value * .8f);
-            UIBehavior.Instance.ShowItems();
+         
+            if(isSellable())
+            {
+                GameManager.Instance.RemoveItemFromInventory(ActiveItem.ItemName);
+                GameManager.Instance.CurrentCoinAmount += (int)(ActiveItem.value * .8f);
+                ShowItemsToSell();
+            }
         }
     }
 
+    public bool isSellable()
+    {
+        for (int i = 0; i < GameManager.Instance.EquipedItems.Length; i++)
+        {
+            if (ActiveItem.ItemName == GameManager.Instance.EquipedItems[i].ItemName)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 }

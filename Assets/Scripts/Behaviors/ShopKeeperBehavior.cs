@@ -8,12 +8,14 @@ public class ShopKeeperBehavior : MonoBehaviour
     private bool canOpenStore;
 
     [field: SerializeField]
-    public string[] itemsForSale { get; private set; } = new string[28]; 
+    public string[] itemsForSale { get; private set; } = new string[28];
+    [field: SerializeField]
+    private Canvas canvas;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        canvas.enabled = false;
     }
 
     // Update is called once per frame
@@ -31,6 +33,7 @@ public class ShopKeeperBehavior : MonoBehaviour
         if(collision.tag == "Player")
         {
             canOpenStore = true;
+            canvas.enabled = true;
         }
     }
 
@@ -39,6 +42,7 @@ public class ShopKeeperBehavior : MonoBehaviour
         if(collision.tag == "Player")
         {
             canOpenStore = false;
+            canvas.enabled = false;
         }
     }
 }

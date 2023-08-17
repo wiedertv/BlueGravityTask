@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UIBehavior : MonoBehaviour
 {
@@ -97,23 +96,22 @@ public class UIBehavior : MonoBehaviour
     {
 
         ActiveItem = newItem;
-
         switch (ActiveItem.PlayerPartType)
         {
             case "hood":
-                if (GameManager.Instance.GetEquipedHood() == ActiveItem)
+                if (GameManager.Instance.GetEquipedHood().ItemName == ActiveItem.ItemName)
                     EquipButtonText.text = "Equiped";
                 else
                     EquipButtonText.text = "Equip";
                 break;
             case "torso":
-                if (GameManager.Instance.GetEquipedTorso() == ActiveItem)
+                if (GameManager.Instance.GetEquipedTorso().ItemName == ActiveItem.ItemName)
                     EquipButtonText.text = "Equiped";
                 else
                     EquipButtonText.text = "Equip";
                 break;
             case "pelvis":
-                if (GameManager.Instance.GetEquipedPelvis() == ActiveItem)
+                if (GameManager.Instance.GetEquipedPelvis().ItemName == ActiveItem.ItemName)
                     EquipButtonText.text = "Equiped";
                 else
                     EquipButtonText.text = "Equip";
@@ -129,5 +127,6 @@ public class UIBehavior : MonoBehaviour
     public void EquippingItem()
     {
         ActiveItem.Equip();
+        SelectItem(ActiveItem);
     }
 }
