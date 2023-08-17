@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -11,19 +12,25 @@ public class GameManager : MonoBehaviour
 
 
     [Header("Inventory Information")]
-    public Item[] referenceItems;
-    public Item[] equipedItems = new Item[3];
+    public Item[] ReferenceItems;
+    public Item[] EquipedItems = new Item[3];
     public string[] ItemsPositions;
 
+    [Header("Gold Information")]
+    [SerializeField]
+    private TextMeshProUGUI GoldText;
+    public int CurrentCoinAmount = 20_000;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         if (Instance == null)
             Instance = this;
         else
             Destroy(gameObject);
+    }
 
+    void Start()
+    {
         DontDestroyOnLoad(gameObject);
     }
 
@@ -38,15 +45,15 @@ public class GameManager : MonoBehaviour
             Player.Instance.CanMove = true;
         }
 
-        AddItemToInventory("");
+        UpdateGold();
     }
 
     public Item GetItemByName(string name)
     {
 
-        for(int i = 0;i < referenceItems.Length;i++)
+        for(int i = 0;i < ReferenceItems.Length;i++)
         {
-            if (referenceItems[i].ItemName == name) return referenceItems[i];
+            if (ReferenceItems[i].ItemName == name) return ReferenceItems[i];
         }
 
         return null;
@@ -112,13 +119,13 @@ public class GameManager : MonoBehaviour
         switch (type)
         {
             case "hood":
-                equipedItems[0] = itemToEquip; 
+                EquipedItems[0] = itemToEquip; 
                 break;
             case "torso":
-                equipedItems[1] = itemToEquip;
+                EquipedItems[1] = itemToEquip;
                 break;
             case "pelvis":
-                equipedItems[2] = itemToEquip;
+                EquipedItems[2] = itemToEquip;
                 break;
 
         }
@@ -126,14 +133,25 @@ public class GameManager : MonoBehaviour
 
     public Item GetEquipedHood()
     {
-        return equipedItems[0];
+        return EquipedItems[0];
     }
     public Item GetEquipedTorso()
     {
-        return equipedItems[1];
+        return EquipedItems[1];
     }
     public Item GetEquipedPelvis()
     {
-        return equipedItems[2];
+        return EquipedItems[2];
+    }
+
+
+    public void AddMoreGold()
+    {
+        CurrentCoinAmount += 20_000;
+    }
+
+    private void UpdateGold()
+    {
+        GoldText.text = CurrentCoinAmount.ToString("N0");
     }
 }
