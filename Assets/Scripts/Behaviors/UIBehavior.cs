@@ -48,18 +48,23 @@ public class UIBehavior : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire2"))
         {
-            if (MainMenu.activeInHierarchy)
-            {
-                MainMenu.SetActive(false);
-                GameManager.Instance.GameMenuOpen = false;
-            }
-            else
-            {
-                ShowItems();
-                MainMenu.SetActive(true);
-                GameManager.Instance.GameMenuOpen = true;
+            OpenCloseMenu();
+        }
+    }
 
-            }
+    public void OpenCloseMenu()
+    {
+        if (MainMenu.activeInHierarchy)
+        {
+            MainMenu.SetActive(false);
+            GameManager.Instance.GameMenuOpen = false;
+        }
+        else
+        {
+            ShowItems();
+            MainMenu.SetActive(true);
+            GameManager.Instance.GameMenuOpen = true;
+
         }
     }
 

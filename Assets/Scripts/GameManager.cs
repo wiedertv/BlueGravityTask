@@ -46,6 +46,23 @@ public class GameManager : MonoBehaviour
         }
 
         UpdateGold();
+        CloseAnyTabWithEscape();
+    }
+
+
+    private void CloseAnyTabWithEscape()
+    {
+        if(Input.GetKeyUp(KeyCode.Escape))
+        {
+            if(GameMenuOpen)
+            {
+                UIBehavior.Instance.CloseMenuButton();
+            }
+            if(ShopActive)
+            {
+                ShopBehavior.Instance.CloseShop();
+            }
+        }
     }
 
     public Item GetItemByName(string name)
