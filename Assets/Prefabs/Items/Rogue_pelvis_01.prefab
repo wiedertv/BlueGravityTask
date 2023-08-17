@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 817dd406ead35b049b12ee4c813c178d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemSprite: {fileID: 21300000, guid: c376d5b80d02ffe4ba89fd03d60ec471, type: 3}
-  ItemName: Brown Pants
-  ItemDesc: Basic Brown Pants
-  PlayerPartType: pelvis
-  IsEquiped: 1
+  <ItemSprite>k__BackingField: {fileID: 21300000, guid: c376d5b80d02ffe4ba89fd03d60ec471, type: 3}
+  <ItemName>k__BackingField: Brown Pants
+  <ItemDesc>k__BackingField: Basic Brown Pants
+  <value>k__BackingField: 1000
+  <PlayerPartType>k__BackingField: pelvis

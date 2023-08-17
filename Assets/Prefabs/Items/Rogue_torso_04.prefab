@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 817dd406ead35b049b12ee4c813c178d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemSprite: {fileID: 21300000, guid: 3d9056df586b6024fbc5b9fee2433eef, type: 3}
-  ItemName: Gray Tshirt
-  ItemDesc: Basic Gray Tshirt
-  PlayerPartType: torso
-  IsEquiped: 0
+  <ItemSprite>k__BackingField: {fileID: 21300000, guid: 3d9056df586b6024fbc5b9fee2433eef, type: 3}
+  <ItemName>k__BackingField: Gray Armour
+  <ItemDesc>k__BackingField: Basic Gray Armour
+  <value>k__BackingField: 5000
+  <PlayerPartType>k__BackingField: torso

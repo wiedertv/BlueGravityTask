@@ -5,13 +5,19 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    [Header("Item Information")]
-    public Sprite ItemSprite;
-    public string ItemName;
-    public string ItemDesc;
+    [field: Header("Item Information")]
+    [field: SerializeField]
+    public Sprite ItemSprite { get; private set; }
+    [field: SerializeField]
+    public string ItemName { get; private set; }
+    [field: SerializeField]
+    public string ItemDesc { get; private set; }
+    [field: SerializeField]
+    public int value { get; private set; }
 
-    [Header("Player Info")]
-    public string PlayerPartType;
+    [field: Header("Player Info")]
+    [field: SerializeField]
+    public string PlayerPartType { get; private set; }
 
     private SpriteRenderer PlayerPart;
 

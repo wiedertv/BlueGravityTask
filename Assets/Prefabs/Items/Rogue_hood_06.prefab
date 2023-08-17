@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 817dd406ead35b049b12ee4c813c178d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemSprite: {fileID: 21300000, guid: 20eb058aea3c3a744bb5d47a1610550a, type: 3}
-  ItemName: Gang Hood
-  ItemDesc: Pro Gang Hood
-  PlayerPartType: hood
-  IsEquiped: 0
+  <ItemSprite>k__BackingField: {fileID: 21300000, guid: 20eb058aea3c3a744bb5d47a1610550a, type: 3}
+  <ItemName>k__BackingField: Black Hood
+  <ItemDesc>k__BackingField: Be the master of the ninjas with this hood
+  <value>k__BackingField: 10000
+  <PlayerPartType>k__BackingField: hood

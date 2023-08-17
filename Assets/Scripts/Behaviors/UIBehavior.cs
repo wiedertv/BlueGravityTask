@@ -9,10 +9,10 @@ public class UIBehavior : MonoBehaviour
 
     public static UIBehavior Instance { get; private set; }
 
-    [SerializeField]
-    private GameObject MainMenu;
-
-    [Header("Inventory Options")]
+    
+    [field: Header("Inventory Options")]
+    [field: SerializeField]
+    public GameObject MainMenu { get; private set; }
     [SerializeField]
     private ItemButton[] ItemButtons;
     public Item ActiveItem;
