@@ -100,5 +100,5 @@ MonoBehaviour:
   ItemSprite: {fileID: 21300000, guid: 3d9056df586b6024fbc5b9fee2433eef, type: 3}
   ItemName: Gray Tshirt
   ItemDesc: Basic Gray Tshirt
-  PlayerPart: {fileID: 0}
+  PlayerPartType: torso
   IsEquiped: 0

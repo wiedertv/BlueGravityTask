@@ -100,5 +100,5 @@ MonoBehaviour:
   ItemSprite: {fileID: 21300000, guid: 468244f274f38f64b85773c7888444b6, type: 3}
   ItemName: Brown Hood
   ItemDesc: Basic Brown Hood
-  PlayerPart: {fileID: 0}
+  PlayerPartType: hood
   IsEquiped: 1

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Item : MonoBehaviour
@@ -10,53 +11,29 @@ public class Item : MonoBehaviour
     public string ItemDesc;
 
     [Header("Player Info")]
-    public SpriteRenderer PlayerPart;
-    public bool IsEquiped;
+    public string PlayerPartType;
 
-    private bool CanEquip = false;
+    private SpriteRenderer PlayerPart;
 
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (PlayerPart.sprite == ItemSprite)
-           IsEquiped = true;
-        else
-           IsEquiped= false;
 
-        if (Input.GetKeyDown(KeyCode.Space) && CanEquip)
-        {
-            Equip();
-        }
     }
 
-    private void Equip()
+    public void Equip()
     {
-        if (PlayerPart.sprite == ItemSprite)
+        PlayerPart = GameObject.Find(PlayerPartType).GetComponent<SpriteRenderer>();
+
+        if (PlayerPart.sprite == ItemSprite)    
             return;
 
         PlayerPart.sprite = ItemSprite;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            CanEquip = true;
-        }
-    }
-
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            CanEquip = false;
-        }
+        GameManager.Instance.SetEquipedItems(this, PlayerPartType);
     }
 }

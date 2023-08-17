@@ -100,5 +100,5 @@ MonoBehaviour:
   ItemSprite: {fileID: 21300000, guid: 90458a12b047bb84ba77cb7ea81ba457, type: 3}
   ItemName: Green Tshirt
   ItemDesc: Basic Green Tshirt
-  PlayerPart: {fileID: 0}
+  PlayerPartType: torso
   IsEquiped: 0

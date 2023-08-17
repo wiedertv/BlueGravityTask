@@ -100,5 +100,5 @@ MonoBehaviour:
   ItemSprite: {fileID: 21300000, guid: 20eb058aea3c3a744bb5d47a1610550a, type: 3}
   ItemName: Gang Hood
   ItemDesc: Pro Gang Hood
-  PlayerPart: {fileID: 0}
+  PlayerPartType: hood
   IsEquiped: 0

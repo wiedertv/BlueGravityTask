@@ -100,5 +100,5 @@ MonoBehaviour:
   ItemSprite: {fileID: 21300000, guid: 0c6412d95175c2b40bd9a27f7d1fa096, type: 3}
   ItemName: Blue Pants
   ItemDesc: Basic Blue Pants
-  PlayerPart: {fileID: 0}
+  PlayerPartType: pelvis
   IsEquiped: 0
